@@ -66,3 +66,23 @@ exports.findAllAsset = async (req, res) => {
         })
     }
 };
+
+exports.findOneAsset = async (req, res) => {
+  try {
+    const { codeAsset } = req.query;
+    const fillter = {codeAsset:codeAsset}
+    console.log(codeAsset);
+      Asset.find(fillter, function(err, allAsset){
+          const findAllAsset = allAsset;
+          res.status(200).json({
+              resultCode: 20000,
+              resultDescription: findAllAsset
+          })
+      })
+  } catch (error) {
+      res.status(500).json({
+          resultCode: 50000,
+          resultDescription: error.messege
+      })
+  }
+};

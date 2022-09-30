@@ -13,5 +13,6 @@ mongoose
 router.post("/", controller.createAsset);
 router.delete("/", controller.deleteAsset);
 router.get("/", controller.findAllAsset);
+router.get("/asset", controller.findOneAsset);
 
 module.exports = router;
