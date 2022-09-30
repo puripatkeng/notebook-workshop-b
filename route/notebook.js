@@ -11,5 +11,6 @@ mongoose
   .catch((err) => console.error("Could not connect..", err));
 
 router.post("/", controller.createAsset);
+router.delete("/", controller.deleteAsset);
 
 module.exports = router;
