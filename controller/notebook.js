@@ -48,3 +48,21 @@ exports.createAsset = async (req, res) => {
     });
   }
 };
+
+
+exports.findAllAsset = async (req, res) => {
+    try {
+        Asset.find({}, function(err, allAsset){
+            const findAllAsset = allAsset;
+            res.status(200).json({
+                resultCode: 20000,
+                resultDescription: findAllAsset
+            })
+        })
+    } catch (error) {
+        res.status(500).json({
+            resultCode: 50000,
+            resultDescription: error.messege
+        })
+    }
+};
